@@ -4,12 +4,10 @@ import sys
 import random
 import time
 import os
-import maze01
 
 screen_width = 100
 
 class player():
-
     def __init__(self):
         self.name = ''
         self.hp = 0
@@ -22,7 +20,13 @@ myPlayer = player()
 def title_secreen_selections():
     option = input("> ")
     if option.lower() == ("play"):
-        setup_game()
+        maze_to_use = input("Which maze do you want to run? 1 or 2")
+        if maze_to_use == '1':
+            import maze01 as maze
+            setup_game()
+        elif maze_to_use == '2':
+            import maze02 as maze
+            setup_game()
     elif option.lower() == ("help"):
         help_menu()
     elif option.lower() == ("exit"):
@@ -57,7 +61,7 @@ def help_menu():
 def print_location():
     print('\n' + ('#' * (4 + len(myPlayer.location))))
     print('#' + myPlayer.location.upper() + '#')
-    print('#' + maze01.zonemap[myPlayer.location][maze01.DESCRIPTION] + '#')
+    print('#' + maze.zonemap[myPlayer.location][maze.DESCRIPTION] + '#')
     print('\n' + ('#' * (4 + len(myPlayer.location))))
 
 def prompt():
@@ -79,16 +83,16 @@ def player_move(myAction):
     ask = "Where would you like to move to?\n"
     dest = input(ask)
     if dest in ['up', 'north']:
-        destination = maze01.zonemap[myPlayer.location][maze01.UP]
+        destination = maze.zonemap[myPlayer.location][maze.UP]
         movement_handler(destination)
     elif dest in ['down', 'south']:
-        destination = maze01.zonemap[myPlayer.location][maze01.DOWN]
+        destination = maze.zonemap[myPlayer.location][maze.DOWN]
         movement_handler(destination)
     elif dest in ['left', 'west']:
-        destination = maze01.zonemap[myPlayer.location][maze01.LEFT]
+        destination = maze.zonemap[myPlayer.location][maze.LEFT]
         movement_handler(destination)
     elif dest in ['right', 'east']:
-        destination = maze01.zonemap[myPlayer.location][maze01.RIGHT]
+        destination = maze.zonemap[myPlayer.location][maze.RIGHT]
         movement_handler(destination)
 
 def movement_handler(destination):
@@ -97,7 +101,7 @@ def movement_handler(destination):
     print_location()
 
 def player_examine(action):
-    if maze01.zonemap[myPlayer.location][maze01.SOLVED]:
+    if maze.zonemap[myPlayer.location][maze.SOLVED]:
         print("You have already exausted this zone")
     else:
         print("You can trigger puzzle here")
