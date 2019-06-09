@@ -130,9 +130,6 @@ def setup_game():
         time.sleep(0.01)
     player_job = input("> ")
     valid_jobs = ['warrior', 'mage', 'priest']
-    if player_job.lower() in valid_jobs:
-        myPlayer.job = player_job
-        print("You are now a " + player_job + "!\n")
     while player_job not in valid_jobs:
         player_job = input("> ")
         if player_job.lower() in valid_jobs:
