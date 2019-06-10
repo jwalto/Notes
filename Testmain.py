@@ -21,24 +21,18 @@ myPlayer = player()
 def title_secreen_selections():
     global maze
     option = input("> ")
-    if option.lower() == ("play"):
-        print("Which maze do you want to run? 1 or 2\n")
-        maze_to_use = input("> ")
-        if maze_to_use == '1':
-            import maze01 as maze
-            setup_game()
-        elif maze_to_use == '2':
-            import maze02 as maze
-            setup_game()
-    elif option.lower() == ("help"):
-        help_menu()
-    elif option.lower() == ("exit"):
-        sys.exit()
-    while option.lower() not in ['play', 'help', 'quit']:
+    while option.lower() not in ['play', 'help', 'exit']:
         print("Please enter a valid command.")
         option = input("> ")
         if option.lower() == ("play"):
-            setup_game()
+            print("Which maze do you want to run? 1 or 2\n")
+            maze_to_use = input("> ")
+            if maze_to_use == '1':
+                import maze01 as maze
+                setup_game()
+            elif maze_to_use == '2':
+                import maze02 as maze
+                setup_game()
         elif option.lower() == ("help"):
             help_menu()
         elif option.lower() == ("exit"):

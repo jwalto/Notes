@@ -18,9 +18,9 @@ class player():
         self.game_over = False
 myPlayer = player()
 
-def title_secreen_selections():
+def title_screen_selections():
     option = input("> ")
-    while option.lower() not in ['play', 'help', 'quit']:
+    while option.lower() not in ['play', 'help', 'exit']:
         print("Please enter a valid command.")
         option = input("> ")
         if option.lower() == ("play"):
@@ -38,14 +38,14 @@ def title_screen():
     print('play')
     print('help')
     print('quit')
-    title_secreen_selections()
+    title_screen_selections()
 
 def help_menu():
     print('#######################')
     print('# Welcome to the game #')
     print('#######################')
     print('use up, down, left, right to move')
-    title_secreen_selections()
+    title_screen_selections()
 
 ZONENAME = ''
 DESCRIPTION = 'description'
