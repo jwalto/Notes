@@ -20,12 +20,6 @@ myPlayer = player()
 
 def title_secreen_selections():
     option = input("> ")
-    if option.lower() == ("play"):
-        setup_game()
-    elif option.lower() == ("help"):
-        help_menu()
-    elif option.lower() == ("exit"):
-        sys.exit()
     while option.lower() not in ['play', 'help', 'quit']:
         print("Please enter a valid command.")
         option = input("> ")
@@ -124,7 +118,7 @@ zonemap = {
         DESCRIPTION: 'description',
         EXAMINATION: 'examine',
         SOLVED: False,
-        UP: 'b2',
+        UP: 'a2',
         DOWN: 'c2',
         LEFT: 'b1',
         RIGHT: 'b3',

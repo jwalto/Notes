@@ -77,7 +77,7 @@ def prompt():
         action = input("> ")
     if action.lower() == 'quit':
         sys.exit()
-    elif action.lower() in ['move', 'go', 'travel', 'look']:
+    elif action.lower() in ['move', 'go', 'travel']:
         player_move(action.lower())
     elif action.lower() in ['examine', 'inspect', 'interact', 'look']:
         player_examine(action.lower())
