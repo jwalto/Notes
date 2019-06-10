@@ -7,7 +7,7 @@ import time
 import os
 
 screen_width = 100
-
+maze = None
 class player():
     def __init__(self):
         self.name = ''
@@ -19,9 +19,11 @@ class player():
 myPlayer = player()
 
 def title_secreen_selections():
+    global maze
     option = input("> ")
     if option.lower() == ("play"):
-        maze_to_use = input("Which maze do you want to run? 1 or 2")
+        print("Which maze do you want to run? 1 or 2\n")
+        maze_to_use = input("> ")
         if maze_to_use == '1':
             import maze01 as maze
             setup_game()
@@ -81,6 +83,7 @@ def prompt():
         player_examine(action.lower())
 
 def player_move(myAction):
+    global maze
     ask = "Where would you like to move to?\n"
     dest = input(ask)
     if dest in ['up', 'north']:
