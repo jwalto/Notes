@@ -5,9 +5,9 @@ import sys
 import random
 import time
 import os
+import maze01 as maze
 
 screen_width = 100
-maze = None
 class player():
     def __init__(self):
         self.name = ''
@@ -19,24 +19,18 @@ class player():
 myPlayer = player()
 
 def title_secreen_selections():
-    global maze
-    option = input("> ")
-    while option.lower() not in ['play', 'help', 'exit']:
-        print("Please enter a valid command.")
-        option = input("> ")
-        if option.lower() == ("play"):
-            print("Which maze do you want to run? 1 or 2\n")
-            maze_to_use = input("> ")
-            if maze_to_use == '1':
-                import maze01 as maze
-                setup_game()
-            elif maze_to_use == '2':
-                import maze02 as maze
-                setup_game()
-        elif option.lower() == ("help"):
+    play_options = ('play', 'help', 'quit')
+    option = ''
+    while not option in play_options:
+        option = input("> ").lower()
+        if option == ("play"):
+            setup_game()
+        elif option == ("help"):
             help_menu()
-        elif option.lower() == ("exit"):
+        elif option == ("quit"):
             sys.exit()
+        else:
+            print("Please enter a valid command.")
 
 def title_screen():
     os.system('cls')
@@ -77,7 +71,6 @@ def prompt():
         player_examine(action.lower())
 
 def player_move(myAction):
-    global maze
     ask = "Where would you like to move to?\n"
     dest = input(ask)
     if dest in ['up', 'north']:

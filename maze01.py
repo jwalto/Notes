@@ -69,7 +69,7 @@ zonemap = {
         DESCRIPTION: 'description',
         EXAMINATION: 'examine',
         SOLVED: False,
-        UP: 'b2',
+        UP: 'a2',
         DOWN: 'c2',
         LEFT: 'b1',
         RIGHT: 'b3',
